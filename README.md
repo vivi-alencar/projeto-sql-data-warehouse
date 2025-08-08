@@ -50,4 +50,4 @@ Os dashboards produzidos oferecem suporte à tomada de decisões estratégicas o
 ---
 
 📎 **Créditos**  
-Baseado no conteúdo criado por [Baraa Khatib Salkini](https://github.com/baraa-khs) sob a Licença MIT.
+Baseado no conteúdo criado por [Baraa Khatib Salkini](https://github.com/DataWithBaraa) sob a Licença MIT.
