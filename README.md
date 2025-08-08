@@ -49,5 +49,9 @@ Os dashboards produzidos oferecem suporte à tomada de decisões estratégicas o
 
 ---
 
-📎 **Créditos**  
-Baseado no conteúdo criado por [Baraa Khatib Salkini](https://github.com/DataWithBaraa) sob a Licença MIT.
+### 📎 Créditos
+
+Este projeto foi inspirado no projeto "SQL Data Warehouse" criado por **Baraa Khatib Salkini**.  
+Conteúdo original disponível em:  
+🔗 [https://www.datawithbaraa.com](https://www.datawithbaraa.com)  
+Licenciado sob a Licença MIT.
