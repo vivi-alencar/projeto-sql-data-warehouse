@@ -3,13 +3,13 @@
 Stored Procedure: Source -> Bronze
 ===============================================================================
 Objetivo: carregar dados para o schema 'bronze' a partir de arquivos CSV externos.
-    Ações executadas:
+    AÃ§Ãµes executadas:
     - Truncar as tabelas da camada Bronze antes de carregar novos dados.
     - Usar o comando `BULK INSERT` para carregar dados dos arquivos CSV para as tabelas Bronze.
 
-Parâmetros:
+ParÃ¢metros:
     Nenhum.  
-    Esta stored procedure não aceita parâmetros nem retorna valores.
+    Esta stored procedure nÃ£o aceita parÃ¢metros nem retorna valores.
 
 Exemplo de Uso:
     EXEC bronze.load_bronze;
@@ -37,12 +37,12 @@ BEGIN
 		BULK INSERT bronze.crm_cust_info
 		FROM 'C:\SQL\ProjetoDWH\datasets\source_crm\cust_info.csv'
 		WITH (
-			FIRSTROW = 2,             -- Ignora o cabeçalho (primeira linha)
+			FIRSTROW = 2,             -- Ignora o cabeÃ§alho (primeira linha)
 			FIELDTERMINATOR = ',',    -- Delimitador de campos
-			TABLOCK                   -- Bloqueio de tabela para carga mais rápida
+			TABLOCK                   -- Bloqueio de tabela para carga mais rÃ¡pida
 		);
 		SET @end_time = GETDATE();
-		PRINT '>> Duração da carga: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' segundos';
+		PRINT '>> DuraÃ§Ã£o da carga: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' segundos';
 		PRINT '>> -------------';
 
 		-- Carregar bronze.crm_prd_info
@@ -58,7 +58,7 @@ BEGIN
 			TABLOCK
 		);
 		SET @end_time = GETDATE();
-		PRINT '>> Duração da carga: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' segundos';
+		PRINT '>> DuraÃ§Ã£o da carga: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' segundos';
 		PRINT '>> -------------';
 
 		-- Carregar bronze.crm_sales_details
@@ -74,7 +74,7 @@ BEGIN
 			TABLOCK
 		);
 		SET @end_time = GETDATE();
-		PRINT '>> Duração da carga: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' segundos';
+		PRINT '>> DuraÃ§Ã£o da carga: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' segundos';
 		PRINT '>> -------------';
 
 		PRINT '------------------------------------------------';
@@ -94,7 +94,7 @@ BEGIN
 			TABLOCK
 		);
 		SET @end_time = GETDATE();
-		PRINT '>> Duração da carga: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' segundos';
+		PRINT '>> DuraÃ§Ã£o da carga: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' segundos';
 		PRINT '>> -------------';
 
 		-- Carregar bronze.erp_cust_az12
@@ -110,7 +110,7 @@ BEGIN
 			TABLOCK
 		);
 		SET @end_time = GETDATE();
-		PRINT '>> Duração da carga: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' segundos';
+		PRINT '>> DuraÃ§Ã£o da carga: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' segundos';
 		PRINT '>> -------------';
 
 		-- Carregar bronze.erp_px_cat_g1v2
@@ -126,21 +126,21 @@ BEGIN
 			TABLOCK
 		);
 		SET @end_time = GETDATE();
-		PRINT '>> Duração da carga: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' segundos';
+		PRINT '>> DuraÃ§Ã£o da carga: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' segundos';
 		PRINT '>> -------------';
 
 		-- Resumo do processo
 		SET @batch_end_time = GETDATE();
 		PRINT '=========================================='
-		PRINT 'Carga da Camada Bronze concluída';
-        PRINT '   - Duração total da carga: ' + CAST(DATEDIFF(SECOND, @batch_start_time, @batch_end_time) AS NVARCHAR) + ' segundos';
+		PRINT 'Carga da Camada Bronze concluÃ­da';
+        PRINT '   - DuraÃ§Ã£o total da carga: ' + CAST(DATEDIFF(SECOND, @batch_start_time, @batch_end_time) AS NVARCHAR) + ' segundos';
 		PRINT '=========================================='
 	END TRY
 	BEGIN CATCH
 		PRINT '=========================================='
 		PRINT 'ERRO DURANTE A CARGA DA CAMADA BRONZE'
 		PRINT 'Mensagem de erro: ' + ERROR_MESSAGE();
-		PRINT 'Número do erro: ' + CAST (ERROR_NUMBER() AS NVARCHAR);
+		PRINT 'NÃºmero do erro: ' + CAST (ERROR_NUMBER() AS NVARCHAR);
 		PRINT 'Estado do erro: ' + CAST (ERROR_STATE() AS NVARCHAR);
 		PRINT '=========================================='
 	END CATCH
