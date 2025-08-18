@@ -7,7 +7,7 @@ A **Camada Bronze** armazena os dados **brutos**, espelhando os arquivos CSV ent
 
 ## 1. bronze.crm_cust_info
 
-| Nome da coluna     | Tipo de dados | Descrição |
+| Coluna             | Tipo          | Descrição |
 |--------------------|---------------|-----------|
 | cst_id             | INT           | Identificador do cliente. |
 | cst_key            | NVARCHAR(50)  | Chave/identificador alternativo do cliente. |
@@ -21,7 +21,7 @@ A **Camada Bronze** armazena os dados **brutos**, espelhando os arquivos CSV ent
 
 ## 2. bronze.crm_prd_info
 
-| Nome da coluna| Tipo de dados | Descrição |
+| Coluna        | Tipo          | Descrição |
 |---------------|---------------|-----------|
 | prd_id        | INT           | Identificador do produto. |
 | prd_key       | NVARCHAR(50)  | Chave composta/estruturada do produto. |
@@ -35,7 +35,7 @@ A **Camada Bronze** armazena os dados **brutos**, espelhando os arquivos CSV ent
 
 ## 3. bronze.crm_sales_details
 
-| Nome da coluna| Tipo de dados | Descrição |
+| Coluna        | Tipo          | Descrição |
 |---------------|---------------|-----------|
 | sls_ord_num   | NVARCHAR(50)  | Número do pedido. |
 | sls_prd_key   | NVARCHAR(50)  | Chave do produto no item de pedido. |
@@ -51,7 +51,7 @@ A **Camada Bronze** armazena os dados **brutos**, espelhando os arquivos CSV ent
 
 ## 4. bronze.erp_loc_a101
 
-| Nome da coluna| Tipo de dados | Descrição |
+| Coluna        | Tipo          | Descrição |
 |---------------|---------------|-----------|
 | cid           | NVARCHAR(50)  | Identificador de cliente. |
 | cntry         | NVARCHAR(50)  | Código/descrição de país (ex.: `DE`, `US`). |
@@ -60,20 +60,20 @@ A **Camada Bronze** armazena os dados **brutos**, espelhando os arquivos CSV ent
 
 ## 5. bronze.erp_cust_az12
 
-| Nome da coluna | Tipo de dados | Descrição |
-|----------------|---------------|-----------|
-| cid            | NVARCHAR(50)  | Identificador de cliente (pode conter prefixos). |
-| bdate          | DATE          | Data de nascimento. |
-| gen            | NVARCHAR(50)  | Gênero (ex.: `M`, `F`, `Male`, `Female`). |
+| Coluna  | Tipo          | Descrição |
+|---------|---------------|-----------|
+| cid     | NVARCHAR(50)  | Identificador de cliente (pode conter prefixos). |
+| bdate   | DATE          | Data de nascimento. |
+| gen     | NVARCHAR(50)  | Gênero (ex.: `M`, `F`, `Male`, `Female`). |
 
 ---
 
 ## 6. bronze.erp_px_cat_g1v2
 
-| Nome da coluna | Tipo de dados | Descrição |
-|----------------|---------------|-----------|
-| id             | NVARCHAR(50)  | Identificador do produto. |
-| cat            | NVARCHAR(50)  | Categoria principal. |
-| subcat         | NVARCHAR(50)  | Subcategoria. |
-| maintenance    | NVARCHAR(50)  | Indicador de manutenção (ex.: `Yes`/`No`). |
+| Coluna      | Tipo          | Descrição |
+|-------------|---------------|-----------|
+| id          | NVARCHAR(50)  | Identificador do produto. |
+| cat         | NVARCHAR(50)  | Categoria principal. |
+| subcat      | NVARCHAR(50)  | Subcategoria. |
+| maintenance | NVARCHAR(50)  | Indicador de manutenção (ex.: `Yes`/`No`). |
 
