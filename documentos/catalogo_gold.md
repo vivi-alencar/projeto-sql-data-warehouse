@@ -10,7 +10,7 @@ Ela é composta por **tabelas de dimensão** e **tabelas de fatos** para métric
 
 **Propósito:** Armazena detalhes dos clientes enriquecidos com dados demográficos e geográficos.
 
-| Column Name     | Data Type     | Descrição |
+| Nome da Coluna  | Tipo de dados| Descrição |
 |-----------------|--------------|-----------|
 | customer_key    | INT          | Chave substituta que identifica de forma única cada registro de cliente na tabela de dimensão. |
 | customer_id     | INT          | Identificador numérico único atribuído a cada cliente. |
@@ -29,7 +29,7 @@ Ela é composta por **tabelas de dimensão** e **tabelas de fatos** para métric
 
 **Propósito:** Fornece informações sobre os produtos e seus atributos.
 
-| Column Name          | Data Type     | Descrição |
+| Nome da coluna       | Tipo de dados| Descrição |
 |----------------------|--------------|-----------|
 | product_key          | INT          | Chave substituta que identifica de forma única cada registro de produto na tabela de dimensão. |
 | product_id           | INT          | Identificador único atribuído ao produto para rastreamento interno. |
@@ -49,7 +49,7 @@ Ela é composta por **tabelas de dimensão** e **tabelas de fatos** para métric
 
 **Propósito:** Armazena dados transacionais de vendas para análise.
 
-| Column Name   | Data Type     | Descrição |
+| Nome da coluna| Tipo de dados| Descrição |
 |---------------|--------------|-----------|
 | order_number  | NVARCHAR(50) | Identificador alfanumérico único para cada pedido de venda (ex.: 'SO54496'). |
 | product_key   | INT          | Chave substituta ligando o pedido à tabela de dimensão de produtos. |
