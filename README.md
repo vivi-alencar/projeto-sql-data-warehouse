@@ -7,7 +7,7 @@ Este projeto demonstra uma solução completa de armazém de dados e análise de
 ## 🏗️ Arquitetura de Dados
 
 A arquitetura de dados segue o modelo **medalhão** com três camadas distintas.  
-*(Abaixo: imagem ilustrativa criada no PowerPoint)*
+![Diagrama de Arquitetura de Dados](documentos/Arquitetura.png)
 
 1. **Camada bronze**: dados brutos obtidos de arquivos CSV (ERP e CRM), carregados em uma instância SQL Server sem modificações.
 2. **Camada prata**: dados limpos, padronizados e normalizados, prontos para transformação analítica.
