@@ -1,57 +1,82 @@
 # 🏢 Projeto de Armazém de Dados e Análise de Negócios
 
-Este projeto demonstra uma solução completa de armazém de dados e análise de negócios — da ingestão de dados à geração de insights acionáveis — com base em práticas adotadas no setor de engenharia e análise de dados.
+Este projeto demonstra uma solução completa de **armazém de dados e análise de negócios** — da ingestão de dados à geração de insights acionáveis — com base em práticas adotadas no setor de engenharia e análise de dados.
 
 ---
 
 ## 🏗️ Arquitetura de Dados
 
-A arquitetura de dados segue o modelo **medalhão** com três camadas distintas.  
-![Diagrama de Arquitetura de Dados](documentos/Arquitetura.png)
+A arquitetura segue o modelo **medalhão** com três camadas:
 
-1. **Camada bronze**: dados brutos obtidos de arquivos CSV (ERP e CRM), carregados em uma instância SQL Server sem modificações.
-2. **Camada prata**: dados limpos, padronizados e normalizados, prontos para transformação analítica.
-3. **Camada ouro**: dados modelados em esquema estrela, otimizados para análises e geração de relatórios.
+![Diagrama de Arquitetura de Dados](documentos/arquitetura.png)
 
----
-
-## 📌 Visão Geral do Projeto
-
-Este projeto envolve:
-
-1. **Arquitetura de dados**: implementação do modelo medalhão em camadas (bronze, prata, ouro).
-2. **Pipelines ETL**: extração, transformação e carga de dados CSV para o armazém.
-3. **Modelagem de dados**: construção de esquema estrela com tabelas de fatos e dimensões.
-4. **Análise e relatórios**: criação de consultas SQL e dashboards para insights estratégicos.
+1. **Camada Bronze** → dados brutos obtidos de arquivos CSV (ERP e CRM), carregados sem modificações.  
+2. **Camada Silver** → dados limpos, padronizados e normalizados.  
+3. **Camada Gold** → dados modelados em esquema estrela (fatos e dimensões), prontos para análise.
 
 ---
 
-## 🚀 Requisitos do Projeto
+## 📂 Estrutura do Repositório
 
-### Construção do Armazém de Dados (Engenharia de Dados)
-
-**Objetivo:** Desenvolver um armazém de dados utilizando SQL Server para consolidar dados de vendas e possibilitar análises confiáveis.
-
-**Especificações:**
-- **Fontes de dados:** arquivos CSV extraídos de sistemas ERP e CRM.
-- **Qualidade dos dados:** etapas de limpeza e verificação de consistência.
-- **Integração:** unificação das fontes em um modelo analítico coeso.
-- **Escopo:** foco nos dados mais recentes, sem necessidade de histórico.
-- **Documentação:** estruturação clara do modelo para uso por stakeholders e equipes analíticas.
-
----
-
-## 📊 Análise e Relatórios (Análise de Dados)
-
-**Objetivo:**  
-Desenvolver análises baseadas em SQL para identificar padrões de comportamento do cliente, desempenho de produtos e tendências de vendas.  
-Os dashboards produzidos oferecem suporte à tomada de decisões estratégicas orientadas por dados.
+- **dados/**
+  - `source_crm/` e `source_erp/` → arquivos CSV brutos de entrada.
+- **documentos/**
+  - `arquitetura.png` → visão de alto nível da arquitetura.  
+  - `integracao_dados.png` → diagrama de integração entre tabelas.  
+  - `catalogo_bronze.md`, `catalogo_silver.md`, `catalogo_gold.md` → dicionários de dados das camadas.  
+  - `matriz_qualidade_silver.md` → verificações de qualidade da Silver.  
+  - `convencoes_nomenclatura.md` → padrão de nomes utilizado.  
+- **scripts/**
+  - `bronze/`, `silver/` → scripts DDL e ETL para criação/carregamento.  
+  - `init_database.sql` → inicialização do banco.  
+- **testes/**
+  - `verificacao_qualidade_silver.sql` → checks de consistência (Silver).  
+  - `verificacao_qualidade_gold.sql` → checks de integridade (Gold).  
+- **README.md** → este arquivo.
 
 ---
 
-### 📎 Créditos
+## 📖 Documentação
 
-Este projeto foi inspirado no projeto "SQL Data Warehouse" criado por **Baraa Khatib Salkini**.  
+- [Catálogo Bronze](documentos/catalogo_bronze.md)  
+- [Catálogo Silver](documentos/catalogo_silver.md)  
+- [Catálogo Gold](documentos/catalogo_gold.md)  
+- [Matriz de Qualidade (Silver)](documentos/matriz_qualidade_silver.md)  
+- [Convenções de Nomenclatura](documentos/convencoes_nomenclatura.md)  
+
+---
+
+## 🔗 Integração de Dados
+
+O diagrama abaixo mostra como as tabelas se relacionam:  
+
+![Integração de Dados](documentos/integracao_dados.png)
+
+---
+
+## ⚡ Como Executar
+
+1. Criar um banco de dados no **SQL Server**.  
+2. Executar [`scripts/init_database.sql`](scripts/init_database.sql).  
+3. Carregar os dados brutos da pasta `dados/` nas tabelas Bronze.  
+4. Executar os scripts em `scripts/silver/` para gerar a camada Silver.  
+5. Executar os scripts da camada Gold para criar as **views**.  
+6. Validar os dados rodando os testes em `testes/`.  
+
+---
+
+## 📊 Análise e Relatórios
+
+Com os dados da camada Gold (esquema estrela), é possível:  
+- Analisar **padrões de clientes**.  
+- Avaliar o **desempenho de produtos**.  
+- Explorar **tendências de vendas**.  
+
+---
+
+## 📎 Créditos
+
+Este projeto foi inspirado no projeto *SQL Data Warehouse* criado por **Baraa Khatib Salkini**.  
 Conteúdo original disponível em:  
 🔗 [https://www.datawithbaraa.com](https://www.datawithbaraa.com)  
-Licenciado sob a Licença MIT.
+Licenciado sob a **Licença MIT**.
